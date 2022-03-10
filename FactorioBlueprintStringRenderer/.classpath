@@ -18,5 +18,15 @@
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/FactorioDataWrapper"/>
 	<classpathentry kind="lib" path="res"/>
+	<classpathentry kind="src" path="/DiscordCoreBotApple"/>
+	<classpathentry kind="lib" path="C:/Users/Brad/.m2/repository/net/dv8tion/JDA/4.2.0_168/JDA-4.2.0_168.jar" sourcepath="C:/Users/Brad/.m2/repository/net/dv8tion/JDA/4.2.0_168/JDA-4.2.0_168-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="net.dv8tion"/>
+			<attribute name="maven.artifactId" value="JDA"/>
+			<attribute name="maven.version" value="4.2.0_168"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
