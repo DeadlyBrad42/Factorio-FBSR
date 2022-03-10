@@ -1,0 +1,6 @@
+[submodule "Java-Factorio-Data-Wrapper"]
+	path = Java-Factorio-Data-Wrapper
+	url = https://github.com/demodude4u/Java-Factorio-Data-Wrapper.git
+[submodule "Discord-Core-Bot-Apple"]
+	path = Discord-Core-Bot-Apple
+	url = https://github.com/demodude4u/Discord-Core-Bot-Apple.git
