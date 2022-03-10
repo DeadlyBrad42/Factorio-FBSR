@@ -16,13 +16,18 @@ public class StartAllServices {
 
 	private static void addServiceIfEnabled(List<Service> services, String configKey,
 			Supplier<? extends Service> factory) {
-		JSONObject configJson = Config.get();
-		if (configJson.has(configKey) && configJson.getJSONObject(configKey).optBoolean("enabled", true)) {
+		if (isEnabled(configKey)) {
 			services.add(factory.get());
 		}
 	}
 
+	private static boolean isEnabled(String configKey) {
+		JSONObject configJson = Config.get();
+		return configJson.has(configKey) && configJson.getJSONObject(configKey).optBoolean("enabled", true);
+	}
+
 	public static void main(String[] args) {
+
 		List<Service> services = new ArrayList<>();
 		addServiceIfEnabled(services, "discord", BlueprintBotDiscordService::new);
 		addServiceIfEnabled(services, "reddit", BlueprintBotRedditService::new);
@@ -30,6 +35,11 @@ public class StartAllServices {
 		addServiceIfEnabled(services, "webapi", WebAPIService::new);
 		addServiceIfEnabled(services, "watchdog", WatchdogService::new);
 		addServiceIfEnabled(services, "logging", LoggingService::new);
+
+		if (args.length > 0 && isEnabled("command")) {
+			LocalCommandService.blueprintString = args[0];
+			addServiceIfEnabled(services, LocalCommandService.ConfigName, LocalCommandService::new);
+		}
 
 		ServiceManager manager = new ServiceManager(services);
 		manager.addListener(new Listener() {
